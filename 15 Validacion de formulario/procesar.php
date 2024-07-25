@@ -29,5 +29,7 @@ if(!empty($_POST)){
     }
 
     echo json_encode($validaciones);
+
+    // json encode es encodificar o convertir a formato json un arreglo(array) generalmente
 }
 
