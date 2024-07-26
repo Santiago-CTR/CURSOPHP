@@ -38,6 +38,8 @@
                             for(let k in r.errors){
                                 $("span[data-key="+ k + "]").text(r.errors[k]);
                             }
+                        }else{
+                            console.log("Success")
                         }
                     },
                     dataType: 'json',

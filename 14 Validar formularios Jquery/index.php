@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
-    <title>Document</title>
+    <title>Formularios</title>
 </head>
 <body>
-    <h1>Formularios </h1>
-    <form id="formulario" method="get" action="procesa.php">
+    <h1>Formularios</h1>
+    <form id="formulario" method="POST">
         <label for="name">Nombre</label>
         <input type="text" id="name" name="name">
         <select name="ocupacion" id="ocupacion">
@@ -31,11 +31,21 @@
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 
     <script>
-        // $(document).ready(function(){
-        //     $("#formulario"){
-        //         $.ajax
-        //     }
-        // })
+       $(document).ready(function () {
+        let form = $('#formulario')
+        $(form).submit(function() { 
+            $.ajax({
+                type: "post",
+                url: "procesar.php",
+                data: form.serialize(),
+                dataType: "json",
+                success: function (response) {
+                    console.log(response);
+                }
+            });
+            return false;
+        });
+       });
     </script>
 </body>
 </html>
