@@ -34,12 +34,13 @@
                     method: 'POST',
                     data: form.serialize(),
                     success: function(r){
+                        console.log(r);
                         if(!r.response){
                             for(let k in r.errors){
                                 $("span[data-key="+ k + "]").text(r.errors[k]);
                             }
                         }else{
-                            console.log("Success")
+                            console.log("Success");
                         }
                     },
                     dataType: 'json',
